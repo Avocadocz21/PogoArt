@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌈 PogoArt 🧶 E-shop</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="header">
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <img src="images/logo.png" width="125px">
+        </div>
+        <nav>
+          <ul id="MenuItems">
+            <li><a href="index.html">Home</a></li>
+            <li><a class="active" href="eshop.html">Shop</a></li>
+            <li><a onclick="alert('Jejda! Tady se ještě na webu pracuje 🔧🪛')">About</a></li>
+            <li><a onclick="alert('Jejda! Tady se ještě na webu pracuje 🔧🪛')">Contact</a></li>
+          </ul>
+        </nav>
+        <a href="cart.html"><img src="images/cart.png" width="30px" height="30px"></a>
+        <img src="images/menu.png" class="menu-icon" onclick="menutoggle()">
+      </div>
+      <div class="row">
+        <div class="col-2">
+          <h1>Nepropásněte tuto novinku!</h1>
+          <h3>Náhrdelník 59Kč</h3>
+          <a href="necklace.html" class="btn">Zjistit více &#8594;</a>
+        </div>
+        <div class="col-2">
+          <img id="promo-img" src="images/featured.jpg" width="400px">        
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!----------  categories  ---------->
+  <div class="categories">
+    <a href="bracelet.html" class="category-card">
+        <img src="images/categories/bracelet.jpeg" class="category-icon">
+        <div class="category-title">Náramky</div>
+    </a>
+    <a href="necklace.html" class="category-card">
+        <img src="images/categories/necklace.jpg" class="category-icon">
+        <div class="category-title">Náhrdelníky</div>
+    </a>
+    <a href="keychan.html" class="category-card">
+        <img src="images/categories/keychan.jpg" class="category-icon">
+        <div class="category-title">Keychains</div>
+    </a>
+    <a href="bag.html" class="category-card">
+        <img src="images/categories/bag.jpg" class="category-icon">
+        <div class="category-title">Tašky</div>
+    </a>
+    <a href="sale.html" class="category-card">
+        <img src="images/categories/sale.jpg" class="category-icon">
+        <div class="category-title">Výprodej</div>
+    </a>
+  </div>
+  
+  <!-----------  featured products  ------------>
+  <div class="small-container">
+    <h2 class="title">Doporučené Produkty</h2>
+    <div class="row" id="featured"></div>
+  </div>
+
+  <div class="small-container">
+    <h2 class="title">Poslední Přidané</h2>
+    <div class="row" id="latest"></div>
+  </div>
+
+  
+
+  <div class="small-container">
+    <!--------- offer --------->
+    <div class="offer">
+      <div class="small-container">
+        <div class="row">
+          <div class="col-2">
+            <img src="images/exclusive.png" class="offer-img">
+          </div>
+          <div class="col-2">
+            <p>Speciálně Od PogoArt</p>
+            <h1>Šťastná Lžíce</h1>
+            <small>Při koupi 1 ŠŤASTNÉ LŽÍCE obdržíte nejméně 5 náhodných náramků a pokud budete mít štěstí tak i více! Cena 1 ŠŤASTNÉ LŽÍCE je 180 Kč (normálně stojí 1 náramek 50 Kč)</small>
+            <a href="" class="btn" onclick="alert('Jejda! Tady se ještě na webu pracuje 🔧🪛')")">Do Košíku &#8594;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+  <!--------- delivery ---------->
+  <div class="delivery">
+    <div class="small-container">
+      <div class="row">
+        <div class="col-5">
+          <img src="images/logo-zasilkovna.png">
+        </div>
+        <div class="col-5">
+          <img src="images/logo-balikovna.png">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-------- footer ---------->
+  <div class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="footer-col-3">
+          <h3>Užitečné odkazy</h3>
+          <ul>
+            <li onclick="alert('Jejda! Tady se ještě na webu pracuje 🔧🪛')">Doručení zboží</li>
+            <li onclick="alert('Jejda! Tady se ještě na webu pracuje 🔧🪛')">Blog</li>
+            <li onclick="alert('Jejda! Tady se ještě na webu pracuje 🔧🪛')">Historie PogoArt</li>
+          </ul>
+        </div>
+        <div class="footer-col-4">
+          <h3>Sledujte nás</h3>
+          <ul>
+            <li onclick="window.location='https://www.instagram.com/pogo._.art._.cz/'">Instagram</li>
+            <li onclick="window.location='https://www.youtube.com/@Pogo_art_cz'">"YouTube</li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <p class="copyright">Copyright 2026 - PogoArt</p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+
+  <script>
+    loadProducts("products/featured.json", "featured");
+    loadProducts("products/latest.json", "latest");
+  </script>
+
+  <div id="modal" class="modal">
+    <div class="modal-box">
+
+      <span class="close" onclick="closeModal()">&times;</span>
+
+      <img id="m-img">
+      <h2 id="m-name"></h2>
+      
+      <div id="quantity-section" style="margin-top: 15px; display: none;">
+        <label for="m-quantity" style="font-size: 14px; color: #555; margin-right: 10px;">Počet kusů:</label>
+        <input type="number" id="m-quantity" value="1" min="1" max="100" style="width: 60px; padding: 5px; text-align: center;">
+      </div>
+
+      <div class="price-cart">
+        <p id="m-price"></p>
+        <button class="btn" onclick="addToCartFromModal()">Do košíku</button>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

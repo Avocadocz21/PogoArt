@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌈 PogoArt 🧶 Tašky</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://widget.packeta.com/v6/www/js/library.js"></script>
+  <script src="https://balikovna.cpost.cz/widget/balikovna-widget.js"></script>
+  
+</head>
+<body>
+  <div class="header">
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <img src="images/logo.png" width="125px">
+        </div>
+        <nav>
+          <ul id="MenuItems">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="eshop.html">Shop</a></li>
+            <li><a onclick="alert('Jejda! Tady se ještě na webu pracuje 🔧🪛')">About</a></li>
+            <li><a onclick="alert('Jejda! Tady se ještě na webu pracuje 🔧🪛')">Contact</a></li>
+          </ul>
+        </nav>
+        <a href="cart.html"><img src="images/cart.png" width="30px" height="30px"></a>
+        <img src="images/menu.png" class="menu-icon" onclick="menutoggle()">
+      </div>
+    </div>
+  </div>
+
+  <h2 class="title">Košík</h2>
+  
+  <div class="cart-page">
+    <div class="cart-items" id="cartItemsContainer"></div>
+
+    <div id="optionsSection">
+      
+      <div class="cart-item cart-options-block">
+        <div class="options-info">
+          <h3>Způsob dopravy</h3>
+          <div class="options-list">
+          <label class="option-row">
+              <input type="radio" name="shipping" value="69_pobocka" checked onchange="toggleBranchButtons()">
+              <span class="option-title">Zásilkovna – Výdejní místo</span>
+              <span class="option-cost">69 Kč</span>
+            </label>
+            <div id="zasilkovna-section" class="branch-delivery-section">
+              <button type="button" class="btn-branch" onclick="openZasilkovna()">Vybrat pobočku Zásilkovny</button>
+              <p id="selected-zasilkovna" class="selected-branch-text">Žádná pobočka nevybrána</p>
+            </div>
+
+            <label class="option-row">
+              <input type="radio" name="shipping" value="109_domu" onchange="toggleBranchButtons()">
+              <span class="option-title">Zásilkovna – Doručení domů</span>
+              <span class="option-cost">109 Kč</span>
+            </label>
+            <div id="zasilkovna-domu-section" class="address-form-section" style="display: none;">
+              <h4>Adresa pro doručení (Zásilkovna domů):</h4>
+              <div class="form-group"><input type="text" placeholder="Ulice a číslo popisné" class="address-input"></div>
+              <div class="form-group-row">
+                <input type="text" placeholder="Město" class="address-input">
+                <input type="text" placeholder="PSČ" class="address-input" style="width: 120px;">
+              </div>
+            </div>
+
+            <!--
+
+            <label class="option-row">
+              <input type="radio" name="shipping" value="39_pobocka" onchange="toggleBranchButtons()">
+              <span class="option-title">Balíkovna – Výdejní místo</span>
+              <span class="option-cost">39 Kč</span>
+            </label>
+            <div id="balikovna-section" class="branch-delivery-section" style="display: none;">
+              <button type="button" class="btn-branch" onclick="openBalikovna()">Vybrat Balíkovnu</button>
+              <p id="selected-balikovna" class="selected-branch-text">Žádná pobočka nevybrána</p>
+            </div>
+
+            <label class="option-row">
+              <input type="radio" name="shipping" value="89_domu" onchange="toggleBranchButtons()">
+              <span class="option-title">Balíkovna – Doručení domů</span>
+              <span class="option-cost">89 Kč</span>
+            </label>
+            <div id="balikovna-domu-section" class="address-form-section" style="display: none;">
+              <h4>Adresa pro doručení (Balíkovna domů):</h4>
+              <div class="form-group"><input type="text" placeholder="Ulice a číslo popisné" class="address-input"></div>
+              <div class="form-group-row">
+                <input type="text" placeholder="Město" class="address-input">
+                <input type="text" placeholder="PSČ" class="address-input" style="width: 120px;">
+              </div>
+            </div>
+            -->
+            
+
+
+          </div>
+        </div>
+      </div>
+
+      <div class="cart-item cart-options-block">
+        <div class="options-info">
+          <h3>Způsob platby</h3>
+          <div class="options-list">
+            <label class="option-row">
+              <input type="radio" name="payment" value="0" checked>
+              <span class="option-title">Převodem na účet QR kódem</span>
+              <span class="option-cost">Zdarma</span>
+            </label>
+          </div>
+        </div>
+      </div>
+      
+      
+      <div class="cart-item cart-options-block">
+        <div class="options-info" style="width: 100%;">
+          <h3>Osobní údaje</h3>
+
+          <div class="personal-data-section">
+
+            <div class="form-group-row">
+              <div class="form-group" style="flex: 1;">
+                <input
+                  type="text"
+                  id="first-name"
+                  placeholder="Jméno"
+                  class="address-input"
+                  required>
+              </div>
+
+              <div class="form-group" style="flex: 1;">
+                <input
+                  type="text"
+                  id="last-name"
+                  placeholder="Příjmení"
+                  class="address-input"
+                  required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <input
+                type="email"
+                id="email"
+                placeholder="E-mail"
+                class="address-input"
+                required>
+            </div>
+
+            <div class="form-group">
+              <input
+                type="tel"
+                id="phone"
+                placeholder="Telefon (např. +420 123 456 789)"
+                class="address-input"
+                required>
+            </div>
+
+            <div class="form-group">
+              <textarea
+                id="note"
+                placeholder="Poznámka k objednávce (nepovinné)..."
+                class="address-input"
+                style="height: 80px; resize: none;"></textarea>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <form id="orderForm" action="https://formspree.io/f/mpqepybo" method="POST" onsubmit="return handleFormSubmit(event)">
+      
+      <input type="hidden" name="Číslo objednávky" id="form-order-id">
+      <input type="hidden" name="Objednané produkty" id="form-cart-items">
+      <input type="hidden" name="Detaily dopravy" id="form-shipping-details">
+
+      <div id="optionsSection">
+        </div>
+
+      <div class="cart-btn-row">
+        <button type="submit" class="btn">Dokončit objednávku</button>
+      </div>
+
+    </form>
+
+  </div>
+
+  
+
+
+
+
+
+
+
+
+
+
+  <!-------- footer ---------->
+  <div class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="footer-col-3">
+          <h3>Užitečné odkazy</h3>
+          <ul>
+            <li onclick="alert('Jejda! Tady se ještě na webu pracuje 🔧🪛')">Doručení zboží</li>
+            <li onclick="alert('Jejda! Tady se ještě na webu pracuje 🔧🪛')">Historie PogoArt</li>
+          </ul>
+        </div>
+        <div class="footer-col-4">
+          <h3>Sledujte nás</h3>
+          <ul>
+            <li onclick="window.location='https://www.instagram.com/pogo._.art._.cz/'">Instagram</li>
+            <li onclick="window.location='https://www.youtube.com/@Pogo_art_cz'">"YouTube</li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <p class="copyright">Copyright 2026 - PogoArt</p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+  <script>
+    // Spustí se pouze na stránce košíku
+    if (typeof displayCart === "function") {
+      displayCart();
+    }
+  </script>
+  
+</body>
+</html>
