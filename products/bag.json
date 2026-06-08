@@ -1,0 +1,12 @@
+[
+  {
+    "image": "images/uploads/bg/bg1.png",
+    "name": "Taška 1",
+    "price": "50 Kč/kus"
+  },
+  {
+    "image": "images/uploads/bg/bg2.jpg",
+    "name": "Taška 2",
+    "price": "50 Kč/kus"
+  }
+]
